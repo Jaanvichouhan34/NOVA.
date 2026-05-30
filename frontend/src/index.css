@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+:root {
+  /* Dark Mode - Extra Aesthetic */
+  --bg: #05050A;
+  --surface: #0E0E16;
+  --card: #14141F;
+  --card2: #1A1A28;
+  --accent: #C9FF33; /* Neon Lime */
+  --accent-rgb: 201, 255, 51;
+  --accent2: #A855F7; /* Purple */
+  --accent3: #FF3366; /* Neon Pink */
+  --accent4: #06B6D4; /* Cyan */
+  --text: #F3F4F6;
+  --text-muted: #9CA3AF;
+  --border: rgba(255, 255, 255, 0.08);
+
+  --font-display: 'Bebas Neue', cursive;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light {
+  /* Light Mode - Professional & Clean */
+  --bg: #F9FAFA;
+  --surface: #F3F4F6;
+  --card: #FFFFFF;
+  --card2: #E5E7EB;
+  --accent: #F59E0B; /* Amber */
+  --accent-rgb: 245, 158, 11;
+  --accent2: #4F46E5; /* Indigo */
+  --accent3: #E11D48; /* Rose */
+  --accent4: #059669; /* Emerald */
+  --text: #111827;
+  --text-muted: #4B5563;
+  --border: rgba(0, 0, 0, 0.06);
+}
+
+body.hire-me {
+  /* Recruiter Professional Mode Overrides */
+  --accent: #2563EB; /* Trust Blue */
+  --accent-rgb: 37, 99, 235;
+  --font-display: var(--font-body); /* Normal font for headings instead of Bebas */
+}
+
+body.hire-me.light {
+  --bg: #FFFFFF;
+  --surface: #F9FAFB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 20px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  transition: var(--transition);
+  min-height: 100vh;
+}
+
+/* Base Typo */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+}
+
+body.hire-me h1, body.hire-me h2, body.hire-me h3 {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(100px, -50px) scale(1.1); }
+}
+
+/* Background Effects */
+.bg-effects {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: bgScroll 60s linear infinite;
+}
+
+@keyframes bgScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 500px 500px; }
+}
+
+.bg-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, transparent 60%);
+  filter: blur(80px);
+  border-radius: 50%;
+  animation: drift 20s infinite alternate ease-in-out;
+}
+
+.bg-blob-2 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 60%);
+  right: -100px;
+  bottom: -100px;
+  animation-delay: -10s;
+}
+
+/* UI Elements */
+.glass-panel {
+  background: rgba(var(--card), 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+}
+
+/* Markdown utilities for buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent3) 100%);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(var(--accent-rgb), 0.5);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  font-weight: 500;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn-secondary:hover {
+  background: rgba(var(--accent-rgb), 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 5px 20px rgba(var(--accent-rgb), 0.2);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.2s ease-out;
+}
+
+body.light .custom-cursor,
+body.light .cursor-ring {
+  display: none; /* Return to normal cursor in light mode */
+}
+
+/* Hire Me Banner */
+.hire-me-banner {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
