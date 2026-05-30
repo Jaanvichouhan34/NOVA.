@@ -7,3 +7,4 @@
 - **[30/5/2026, 8:01:59 pm]** Optimize not just the code, but also the feedback loop of iteration and refinement, for it is often the subtle tweaks in the latter that yield the greatest improvements in the former.
 - **[30/5/2026, 9:46:25 am]** Don't try to optimize for future unknowns, focus on writing clean, maintainable code that minimizes technical debt and can adapt to change.
 - **[30/5/2026, 12:25:24 pm]** The effectiveness of any system lies not in its complexity, but in its simplicity and the clarity of its underlying principles.
+- **[30/5/2026, 1:38:52 pm]** Code as if you'll be explaining it to a colleague who knows exactly what you're doing, but will still need to implement it themselves.
