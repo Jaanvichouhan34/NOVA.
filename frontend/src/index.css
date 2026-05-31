@@ -149,7 +149,7 @@ body.hire-me h1, body.hire-me h2, body.hire-me h3 {
 
 /* UI Elements */
 .glass-panel {
-  background: rgba(var(--card), 0.7);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);

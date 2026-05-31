@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, CircleUserRound, Terminal, Zap, Download, ImageIcon } from 'lucide-react';
+import InteractiveRobot from '../components/InteractiveRobot';
 
 export default function About({ hireMeMode }) {
 
@@ -12,7 +13,11 @@ export default function About({ hireMeMode }) {
 
   if (!hireMeMode) {
     return (
-      <div style={{ padding: '2rem 5%', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '900px', margin: '0 auto' }}>
+      <div style={{ display: 'flex', gap: '3rem', maxWidth: '1300px', margin: '0 auto', alignItems: 'flex-start', padding: '0 5%' }}>
+        <div style={{ flexShrink: 0, position: 'sticky', top: '220px', width: '300px', display: 'flex', justifyContent: 'center' }}>
+          <InteractiveRobot />
+        </div>
+        <div style={{ flex: 1, padding: '2rem 0', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '900px' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h1 style={{ fontSize: '4rem', color: 'var(--accent)', textShadow: '0 0 15px rgba(var(--accent-rgb), 0.5)', letterSpacing: '4px' }}>
             <Terminal size={48} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '15px' }} />
@@ -25,7 +30,7 @@ export default function About({ hireMeMode }) {
           padding: '3rem', 
           borderRadius: '24px', 
           border: '1px solid rgba(var(--accent-rgb), 0.3)', 
-          background: 'rgba(var(--card), 0.7)',
+          background: 'color-mix(in srgb, var(--card) $(0.7*100)%, transparent)',
           boxShadow: '0 20px 50px rgba(0,0,0,0.2), inset 0 0 20px rgba(var(--accent-rgb), 0.1)',
           position: 'relative',
           overflow: 'hidden',
@@ -70,12 +75,17 @@ export default function About({ hireMeMode }) {
             <p style={{ fontFamily: 'var(--font-mono)', color: 'var(--text)' }}>Building insanely cool things on the internet. Turn on 'Hire Me' at the top if you're a recruiter looking for the formal layout.</p>
           </div>
         </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '2rem 5%', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '900px', margin: '0 auto' }}>
+    <div style={{ display: 'flex', gap: '3rem', maxWidth: '1300px', margin: '0 auto', alignItems: 'flex-start', padding: '0 5%' }}>
+      <div style={{ flexShrink: 0, position: 'sticky', top: '220px', width: '300px', display: 'flex', justifyContent: 'center' }}>
+        <InteractiveRobot />
+      </div>
+      <div style={{ flex: 1, padding: '2rem 0', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '900px' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h1 style={{ fontSize: '3.5rem', color: 'var(--accent)' }}>
           <Compass size={48} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '15px' }} />
@@ -135,7 +145,7 @@ export default function About({ hireMeMode }) {
               boxShadow: '0 0 10px var(--accent)'
             }}></div>
             
-            <div className="glass-panel" style={{ padding: '2rem', borderRadius: '16px', background: 'rgba(var(--card), 0.5)' }}>
+            <div className="glass-panel" style={{ padding: '2rem', borderRadius: '16px', background: 'color-mix(in srgb, var(--card) $(0.5*100)%, transparent)' }}>
               <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
                 {step.year}
               </span>
@@ -144,6 +154,7 @@ export default function About({ hireMeMode }) {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

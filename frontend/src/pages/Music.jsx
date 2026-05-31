@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Music as MusicIcon, Play, Pause, SkipForward, SkipBack, Volume2, Disc3 } from 'lucide-react';
+import AIRobot from '../components/AIRobot';
 
 export default function Music() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -9,11 +10,11 @@ export default function Music() {
 
   // You can expand this array with your own .mp3 files
   const playlist = [
-    { id: 1, title: 'Session 01: Focus', artist: 'Jaanvi', duration: '3:45', file: '/music.mp3' },
-    { id: 2, title: 'Midnight Compile', artist: 'Code Vibe', duration: '2:30', file: '/music.mp3' },
-    { id: 3, title: 'Server Room Chill', artist: 'Lofi Beats', duration: '4:15', file: '/music.mp3' },
-    { id: 4, title: 'Neon Algorithms', artist: 'Synthwave', duration: '3:10', file: '/music.mp3' },
-    { id: 5, title: 'Deploy Friday', artist: 'Danger Zone', duration: '2:55', file: '/music.mp3' }
+    { id: 1, title: 'Kasoor (Acoustic)', artist: 'Prateek Kuhad', duration: '3:20', file: '/music/song1.mp3' },
+    { id: 2, title: 'Let Her Go', artist: 'Passenger', duration: '4:12', file: '/music/song2.mp3' },
+    { id: 3, title: 'The Nights', artist: 'Avicii', duration: '2:56', file: '/music/song3.mp3' },
+    { id: 4, title: 'Co2', artist: 'Prateek Kuhad', duration: '3:05', file: '/music/song4.mp3' },
+    { id: 5, title: '7 Years', artist: 'Lukas Graham', duration: '3:59', file: '/music/song5.mp3' }
   ];
 
   const currentTrack = playlist[currentTrackIndex];
@@ -56,7 +57,7 @@ export default function Music() {
   };
 
   return (
-    <div style={{ padding: '2rem 5%', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '1000px', margin: '0 auto' }}>
+    <div style={{ padding: '2rem 5%', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '1300px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <h1 style={{ fontSize: '4rem', color: 'var(--accent)', textShadow: '0 0 40px rgba(var(--accent-rgb), 0.7)', letterSpacing: '5px' }}>
           <MusicIcon size={48} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '15px' }} />
@@ -65,7 +66,7 @@ export default function Music() {
         <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '1.2rem' }}>Beats to code and live by.</p>
       </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3rem', alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '2rem', alignItems: 'center', justifyContent: 'center' }}>
         
         {/* Audio Player Core Engine */}
         <audio 
@@ -80,7 +81,7 @@ export default function Music() {
           <div className="glass-panel" style={{ 
             padding: '3rem 2rem', 
             borderRadius: '24px', 
-            background: 'linear-gradient(145deg, rgba(var(--card), 0.7), rgba(0,0,0,0.8))',
+            background: 'linear-gradient(145deg, color-mix(in srgb, var(--card) $(0.7*100)%, transparent), rgba(0,0,0,0.8))',
             border: '1px solid rgba(var(--accent-rgb), 0.3)',
             boxShadow: isPlaying ? '0 15px 50px rgba(var(--accent-rgb), 0.2)' : '0 10px 30px rgba(0,0,0,0.5)',
             textAlign: 'center',
@@ -95,7 +96,7 @@ export default function Music() {
             {/* Spinning Record Art */}
             <div style={{ 
               width: '200px', height: '200px', borderRadius: '50%', margin: '0 auto 2rem',
-              background: 'radial-gradient(circle, rgba(var(--card), 1) 0%, rgba(var(--accent-rgb), 0.2) 100%)',
+              background: 'radial-gradient(circle, color-mix(in srgb, var(--card) $(1*100)%, transparent) 0%, rgba(var(--accent-rgb), 0.2) 100%)',
               border: '4px solid var(--accent)',
               display: 'flex', justifyContent: 'center', alignItems: 'center',
               boxShadow: isPlaying ? '0 0 50px rgba(var(--accent-rgb), 0.4)' : 'none',
@@ -153,7 +154,7 @@ export default function Music() {
                 style={{ 
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   padding: '1.2rem', borderRadius: '12px', cursor: 'pointer',
-                  background: currentTrackIndex === i ? 'rgba(var(--accent-rgb), 0.15)' : 'rgba(var(--card), 0.4)',
+                  background: currentTrackIndex === i ? 'rgba(var(--accent-rgb), 0.15)' : 'color-mix(in srgb, var(--card) $(0.4*100)%, transparent)',
                   border: `1px solid ${currentTrackIndex === i ? 'var(--accent)' : 'transparent'}`,
                   transition: 'all 0.2s'
                 }}
@@ -161,8 +162,8 @@ export default function Music() {
                   setCurrentTrackIndex(i);
                   setIsPlaying(true);
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = currentTrackIndex === i ? 'rgba(var(--accent-rgb), 0.15)' : 'rgba(var(--card), 0.8)'}
-                onMouseLeave={e => e.currentTarget.style.background = currentTrackIndex === i ? 'rgba(var(--accent-rgb), 0.15)' : 'rgba(var(--card), 0.4)'}
+                onMouseEnter={e => e.currentTarget.style.background = currentTrackIndex === i ? 'rgba(var(--accent-rgb), 0.15)' : 'color-mix(in srgb, var(--card) $(0.8*100)%, transparent)'}
+                onMouseLeave={e => e.currentTarget.style.background = currentTrackIndex === i ? 'rgba(var(--accent-rgb), 0.15)' : 'color-mix(in srgb, var(--card) $(0.4*100)%, transparent)'}
               >
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                   <span style={{ color: currentTrackIndex === i ? 'var(--accent)' : 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
@@ -188,6 +189,11 @@ export default function Music() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* AI Robot Interface */}
+        <div style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+          <AIRobot />
         </div>
       </div>
       

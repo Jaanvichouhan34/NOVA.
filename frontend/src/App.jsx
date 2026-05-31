@@ -165,7 +165,7 @@ export default function App() {
         display: 'flex',
         gap: '0.8rem',
         padding: '0.8rem 1.5rem',
-        background: 'rgba(var(--card), 0.65)',
+        background: 'color-mix(in srgb, var(--card) $(0.65*100)%, transparent)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         border: '1px solid var(--border)',

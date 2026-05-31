@@ -285,7 +285,7 @@ export default function Projects({ hireMeMode }) {
                 flexDirection: 'column',
                 gap: '1.5rem',
                 border: '1px solid rgba(var(--accent-rgb), 0.1)',
-                background: 'linear-gradient(145deg, rgba(var(--card), 0.9) 0%, rgba(var(--surface), 0.5) 100%)',
+                background: 'linear-gradient(145deg, color-mix(in srgb, var(--card) 90%, transparent) 0%, color-mix(in srgb, var(--surface) 50%, transparent) 100%)',
                 transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                 position: 'relative',
                 overflow: 'hidden',

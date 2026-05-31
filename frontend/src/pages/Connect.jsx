@@ -53,7 +53,7 @@ export default function Connect({ hireMeMode }) {
         
         {/* Contact Info Side */}
         <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          <div className="glass-panel" style={{ padding: '2.5rem', borderRadius: '24px', borderTop: '2px solid var(--accent)', background: hireMeMode ? 'rgba(var(--card), 0.8)' : undefined }}>
+          <div className="glass-panel" style={{ padding: '2.5rem', borderRadius: '24px', borderTop: '2px solid var(--accent)', background: hireMeMode ? 'color-mix(in srgb, var(--card) $(0.8*100)%, transparent)' : undefined }}>
             <h2 style={{ marginBottom: '1.5rem', fontSize: '2rem' }}>{hireMeMode ? 'Reach Out' : 'The Network'}</h2>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', color: 'var(--text-muted)' }}>

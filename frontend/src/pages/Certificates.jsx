@@ -4,21 +4,30 @@ import { Award, Medal, Trophy, ExternalLink, Calendar, Code2, Shield, Cloud, Dow
 export default function Certificates() {
   const achievements = [
     {
-      title: "GSSoC 2025 Tech Contributor",
+      title: "GSSoC 2026 Ambassador & Contributor",
       org: "GirlScript Summer of Code",
-      date: "2025",
+      date: "2026",
       type: "Open Source",
       icon: Code2,
-      desc: "Selected as a technical contributor for India's largest open-source program. Contributed to multiple high-impact repositories.",
+      desc: "Selected as Ambassador & Contributor out of 35,000+ applicants. Contributing to open source projects while driving community outreach.",
       link: "#"
     },
     {
-      title: "Smart India Hackathon (SIH) - Round 2",
+      title: "NSoC '26 Open Source Contributor",
+      org: "Nexus Spring of Code",
+      date: "2026",
+      type: "Open Source",
+      icon: Code2,
+      desc: "Selected as an official Open Source Contributor for Nexus Spring of Code.",
+      link: "#"
+    },
+    {
+      title: "Smart India Hackathon (SIH) - Internal College Round",
       org: "Government of India",
       date: "2024 & 2025",
       type: "Hackathon",
       icon: Trophy,
-      desc: "Advanced to Round 2 of the national-level Smart India Hackathon twice — in both 2nd and 3rd year of B.Tech.",
+      desc: "Successfully cleared the internal college round for the Smart India Hackathon twice — during both the 2nd and 3rd year of B.Tech.",
       link: "#"
     },
     {
@@ -37,6 +46,15 @@ export default function Certificates() {
       type: "Cloud Program",
       icon: Cloud,
       desc: "Achieved Trooper-level recognition for completing cloud-based technical challenges in the Google Arcade Facilitator Program.",
+      link: "#"
+    },
+    {
+      title: "Cisco Certified Network Associate (CCNA)",
+      org: "Cisco Networking Academy",
+      date: "Sep 2025 - Present",
+      type: "Internship",
+      icon: Shield,
+      desc: "Currently undertaking a rigorous 9-month internship/training program in Enterprise Networking, Routing, Switching, and Cybersecurity.",
       link: "#"
     }
   ];
@@ -139,14 +157,14 @@ export default function Certificates() {
           AWARDS & CERTIFICATIONS
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginTop: '1rem' }}>
-          {certificates.length} certifications · {achievements.length} competitive achievements
+          {certificates.length} certifications · {achievements.length} experiences & milestones
         </p>
       </div>
 
       {/* Achievements Section */}
       <div style={{ marginBottom: '5rem' }}>
         <h2 style={{ fontSize: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Trophy color="var(--accent2)" /> Competitive Achievements
+          <Trophy color="var(--accent2)" /> Experience & Achievements
         </h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>

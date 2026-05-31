@@ -1,0 +1,384 @@
+/* ============================================
+   AIRobot.css  —  MINE. Portfolio Hero Visual
+   Pure CSS, no dependencies, React-ready
+   ============================================ */
+
+/* ---------- Stage ---------- */
+.ai-stage {
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  font-family: monospace;
+}
+
+/* ---------- Scanline overlay ---------- */
+.ai-scanline-wrap {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100;
+}
+.ai-scanline {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 107, 26, 0.07);
+  animation: aiScan 3s linear infinite;
+}
+@keyframes aiScan {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* ---------- Data stream (right) ---------- */
+.ai-data-stream {
+  position: absolute;
+  right: 0; top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-end;
+}
+.ai-ds-line {
+  font-size: 9px;
+  color: rgba(255, 107, 26, 0.5);
+  font-family: monospace;
+  animation: aiFade 2s ease-in-out infinite;
+}
+
+/* ---------- Circuit list (left) ---------- */
+.ai-circuit-left {
+  position: absolute;
+  left: 0; top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ai-cl-line {
+  font-size: 9px;
+  color: rgba(255, 179, 71, 0.45);
+  font-family: monospace;
+  animation: aiFade 2.5s ease-in-out infinite;
+}
+@keyframes aiFade {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1;   }
+}
+
+/* ---------- Robot container ---------- */
+.ai-bot {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  margin: auto;
+}
+
+/* ---------- Head ---------- */
+.ai-head {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 130px; height: 110px;
+  background: #1a1a1a;
+  border-radius: 18px 18px 12px 12px;
+  border: 2px solid #FF6B1A;
+  animation: aiHeadGlitch 6s infinite;
+}
+@keyframes aiHeadGlitch {
+  0%, 94%, 100% { transform: translateX(-50%); }
+  95%  { transform: translateX(calc(-50% + 4px)) skewX(1deg);  }
+  96%  { transform: translateX(calc(-50% - 4px)) skewX(-1deg); }
+  97%  { transform: translateX(-50%); }
+}
+
+/* Antenna */
+.ai-antenna {
+  position: absolute;
+  top: -22px; left: 50%;
+  transform: translateX(-50%);
+  width: 3px; height: 22px;
+  background: #FF6B1A;
+}
+.ai-antenna::after {
+  content: '';
+  position: absolute;
+  top: -7px; left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #FF6B1A;
+  animation: aiBlink 1.2s ease-in-out infinite;
+}
+
+/* Ears */
+.ai-ear {
+  position: absolute;
+  top: 30px;
+  width: 14px; height: 40px;
+  background: #1a1a1a;
+  border: 2px solid #FF6B1A;
+  border-radius: 4px;
+}
+.ai-ear-l { left: -16px; }
+.ai-ear-r { right: -16px; }
+.ai-ear::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #FF6B1A;
+  animation: aiBlink 0.8s ease-in-out infinite alternate;
+}
+
+/* Visor */
+.ai-visor {
+  position: absolute;
+  top: 22px; left: 50%;
+  transform: translateX(-50%);
+  width: 100px; height: 30px;
+  background: #0d0d0d;
+  border-radius: 6px;
+  border: 1px solid #FF6B1A;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.ai-eye {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #FF6B1A;
+  position: relative;
+  animation: aiEyeScan 3s ease-in-out infinite;
+}
+.ai-eye::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: aiEyeMove 3s ease-in-out infinite;
+}
+@keyframes aiEyeScan {
+  0%, 100% { box-shadow: 0 0 8px #FF6B1A; }
+  50%       { box-shadow: 0 0 20px #FF6B1A, 0 0 40px rgba(255,107,26,0.4); }
+}
+@keyframes aiEyeMove {
+  0%, 100% { transform: translate(0, 0);    }
+  25%       { transform: translate(3px,-2px); }
+  50%       { transform: translate(-2px,2px); }
+  75%       { transform: translate(2px, 1px); }
+}
+.ai-scan-line {
+  position: absolute;
+  width: 100%; height: 1px;
+  background: rgba(255,107,26,0.6);
+  animation: aiVisorScan 2s linear infinite;
+}
+@keyframes aiVisorScan {
+  0%   { top: 0;    }
+  100% { top: 100%; }
+}
+
+/* Mouth */
+.ai-mouth {
+  position: absolute;
+  bottom: 14px; left: 50%;
+  transform: translateX(-50%);
+  width: 70px; height: 12px;
+  border-radius: 3px;
+  background: #0d0d0d;
+  border: 1px solid #FF6B1A;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 5px;
+  overflow: hidden;
+}
+.ai-mouth-bar {
+  width: 5px; height: 6px;
+  background: #FF6B1A;
+  border-radius: 1px;
+  animation: aiTalk 0.4s ease-in-out infinite alternate;
+}
+.ai-mouth-bar:nth-child(2) { animation-delay: 0.1s;  }
+.ai-mouth-bar:nth-child(3) { animation-delay: 0.2s;  }
+.ai-mouth-bar:nth-child(4) { animation-delay: 0.05s; }
+.ai-mouth-bar:nth-child(5) { animation-delay: 0.15s; }
+.ai-mouth-bar:nth-child(6) { animation-delay: 0.25s; }
+@keyframes aiTalk {
+  from { height: 3px; }
+  to   { height: 9px; }
+}
+
+/* ---------- Neck ---------- */
+.ai-neck {
+  position: absolute;
+  top: 108px; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 18px;
+  background: #1a1a1a;
+  border-left:  2px solid #FF6B1A;
+  border-right: 2px solid #FF6B1A;
+}
+
+/* ---------- Body ---------- */
+.ai-body {
+  position: absolute;
+  top: 124px; left: 50%;
+  transform: translateX(-50%);
+  width: 110px; height: 100px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 2px solid #FF6B1A;
+}
+.ai-chest-panel {
+  position: absolute;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  width: 75px; height: 45px;
+  background: #0d0d0d;
+  border-radius: 6px;
+  border: 1px solid rgba(255,107,26,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.ai-chest-bar-wrap {
+  width: 55px;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+.ai-cbar {
+  flex: 1;
+  background: #FF6B1A;
+  border-radius: 1px;
+  animation: aiCbar 0.6s ease-in-out infinite alternate;
+}
+.ai-cbar:nth-child(1) { height: 8px;  animation-delay: 0s;    }
+.ai-cbar:nth-child(2) { height: 14px; animation-delay: 0.1s;  }
+.ai-cbar:nth-child(3) { height: 10px; animation-delay: 0.2s;  }
+.ai-cbar:nth-child(4) { height: 18px; animation-delay: 0.05s; }
+.ai-cbar:nth-child(5) { height: 12px; animation-delay: 0.15s; }
+@keyframes aiCbar {
+  from { opacity: 0.4; }
+  to   { opacity: 1;   }
+}
+.ai-chest-dot-row {
+  display: flex;
+  gap: 5px;
+}
+.ai-cdot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #FF6B1A;
+  animation: aiBlink 1s ease-in-out infinite;
+}
+.ai-cdot:nth-child(1) { animation-delay: 0s;   background: #FF6B1A; }
+.ai-cdot:nth-child(2) { animation-delay: 0.3s; background: #FFB347; }
+.ai-cdot:nth-child(3) { animation-delay: 0.6s; background: #FF4444; }
+
+/* ---------- Arms ---------- */
+.ai-arm {
+  position: absolute;
+  top: 130px;
+  width: 22px; height: 80px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  border: 2px solid #FF6B1A;
+}
+.ai-arm-l { left: 10px;  animation: aiArmSwing 4s ease-in-out infinite; }
+.ai-arm-r { right: 10px; animation: aiArmSwing 4s ease-in-out infinite reverse; }
+@keyframes aiArmSwing {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg);  }
+}
+.ai-hand {
+  position: absolute;
+  bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 18px; height: 14px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  border: 2px solid #FF6B1A;
+}
+
+/* ---------- Legs ---------- */
+.ai-leg {
+  position: absolute;
+  top: 222px;
+  width: 28px; height: 55px;
+  background: #1a1a1a;
+  border-radius: 6px;
+  border: 2px solid #FF6B1A;
+}
+.ai-leg-l { left: 40px;  }
+.ai-leg-r { right: 40px; }
+.ai-foot {
+  position: absolute;
+  bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 34px; height: 12px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  border: 2px solid #FF6B1A;
+}
+
+/* ---------- Floating tags ---------- */
+.ai-float-tag {
+  position: absolute;
+  background: #0d0d0d;
+  border: 1px solid #FF6B1A;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #FF6B1A;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  animation: aiFloatTag 3s ease-in-out infinite;
+}
+@keyframes aiFloatTag {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ---------- Status bar ---------- */
+.ai-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+.ai-status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #FF6B1A;
+  animation: aiBlink 1s infinite;
+}
+.ai-status-text {
+  font-size: 11px;
+  color: rgba(255,107,26,0.8);
+  letter-spacing: 0.1em;
+  font-family: monospace;
+}
+
+/* ---------- Shared keyframes ---------- */
+@keyframes aiBlink {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 8px #FF6B1A; }
+  50%       { opacity: 0.2; box-shadow: none;             }
+}

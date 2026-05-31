@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const Groq = require('groq-sdk');
 
 const app = express();
 app.use(cors());
@@ -26,7 +26,7 @@ const ContactSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', ContactSchema);
 
 // AI Setup
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const JAANVI_SYSTEM_PROMPT = `You are "Jaanvi's AI" on her personal website "Mine." You answer questions about Jaanvi Chouhan warmly and concisely (2-4 sentences). Here's everything about her:
 
@@ -59,31 +59,30 @@ Be friendly, enthusiastic, and concise. Never share private info beyond what's l
 app.post('/api/chat', async (req, res) => {
     try {
         const { message, history } = req.body;
-        const model = genAI.getGenerativeModel({ 
-            model: 'gemini-pro'
-        });
-
-        // Convert history format if necessary from standard [{role, parts}] array
+        
         let cleanHistory = history || [];
         if (cleanHistory.length > 0 && cleanHistory[0].role === 'model') {
             cleanHistory.shift(); // Remove initial greeting so user is first
         }
 
-        // Inject system prompt manually by defining a baseline context exchange
-        const systemExchange = [
-            { role: 'user', parts: [{ text: `SYSTEM DIRECTIVE: ${JAANVI_SYSTEM_PROMPT}` }] },
-            { role: 'model', parts: [{ text: "Understood. I am Jaanvi's AI and I will follow these directives exactly." }] }
+        // Convert history format from frontend (Gemini style) to Groq style
+        const groqHistory = cleanHistory.map(msg => ({
+            role: msg.role === 'model' ? 'assistant' : 'user',
+            content: msg.parts[0].text
+        }));
+
+        const messages = [
+            { role: 'system', content: JAANVI_SYSTEM_PROMPT },
+            ...groqHistory,
+            { role: 'user', content: message }
         ];
 
-        const finalHistory = [...systemExchange, ...cleanHistory];
-
-        const chat = model.startChat({
-            history: finalHistory
+        const chatCompletion = await groq.chat.completions.create({
+            messages: messages,
+            model: 'llama-3.3-70b-versatile',
         });
 
-        const result = await chat.sendMessage(message);
-        const response = await result.response;
-        const text = response.text();
+        const text = chatCompletion.choices[0]?.message?.content || '';
 
         res.json({ reply: text });
     } catch (error) {

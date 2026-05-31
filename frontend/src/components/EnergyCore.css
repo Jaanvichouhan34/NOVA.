@@ -1,0 +1,143 @@
+.energy-scene {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  transform: scale(1.35);
+}
+
+.core-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateZ(45deg);
+  animation: core-float 10s ease-in-out infinite alternate;
+}
+
+.core {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, var(--accent) 20%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 50px var(--accent), 
+    inset 0 0 20px #fff,
+    inset 0 0 40px var(--accent);
+  animation: core-pulse 2s ease-in-out infinite alternate;
+  transform: rotateX(-60deg) rotateY(0deg); /* counter-tilt so it looks like a sphere */
+  filter: drop-shadow(0 0 20px var(--accent));
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(var(--accent-rgb), 0.2), 
+    inset 0 0 20px rgba(var(--accent-rgb), 0.2);
+  transform-style: preserve-3d;
+}
+
+.ring1 {
+  width: 160px; height: 160px;
+  border-top: 2px solid var(--accent);
+  animation: spin-ring 8s linear infinite;
+}
+
+.ring2 {
+  width: 220px; height: 220px;
+  border-right: 2px solid var(--accent3);
+  animation: spin-ring-reverse 12s linear infinite;
+}
+
+.ring3 {
+  width: 300px; height: 300px;
+  border-bottom: 2px solid var(--accent4);
+  animation: spin-ring 15s linear infinite;
+}
+
+.ring4 {
+  width: 380px; height: 380px;
+  border-left: 2px solid var(--accent2);
+  border-top: 1px dashed rgba(var(--accent-rgb), 0.5);
+  animation: spin-ring-reverse 20s linear infinite;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  transform-style: preserve-3d;
+  /* They animate along dx and dy given via custom props */
+  animation-name: float-particle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.tag {
+  position: absolute;
+  padding: 0.4rem 1rem;
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.1);
+  /* The tags need to counter-rotate to face the camera */
+}
+
+.tag1 { top: 10%; left: 10%; animation: counter-float 6s infinite ease-in-out; }
+.tag2 { bottom: 10%; right: 10%; animation: counter-float-rev 7s infinite ease-in-out; }
+.tag3 { top: 20%; right: 5%; animation: counter-float 5s infinite ease-in-out; border-color: var(--accent3); color: var(--accent3); }
+.tag4 { bottom: 20%; left: 5%; animation: counter-float-rev 8s infinite ease-in-out; border-color: var(--accent2); color: var(--accent2); }
+.tag5 { top: 50%; left: -5%; animation: counter-float 9s infinite ease-in-out; border-color: var(--accent4); color: var(--accent4); }
+.tag6 { bottom: 50%; right: -5%; animation: counter-float-rev 6s infinite ease-in-out; }
+
+
+@keyframes core-pulse {
+  0% { transform: rotateX(-60deg) scale(0.95); opacity: 0.8; }
+  100% { transform: rotateX(-60deg) scale(1.05); opacity: 1; }
+}
+
+@keyframes core-float {
+  0%, 100% { transform: rotateX(60deg) rotateZ(45deg) translateY(0); }
+  50% { transform: rotateX(60deg) rotateZ(45deg) translateY(-20px); }
+}
+
+@keyframes spin-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-ring-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(var(--dx), var(--dy), 50px); }
+}
+
+@keyframes counter-float {
+  0%, 100% { transform: rotateZ(-45deg) rotateX(-60deg) translateY(0) scale(1); }
+  50% { transform: rotateZ(-45deg) rotateX(-60deg) translateY(-10px) scale(1.05); }
+}
+@keyframes counter-float-rev {
+  0%, 100% { transform: rotateZ(-45deg) rotateX(-60deg) translateY(0) scale(1); }
+  50% { transform: rotateZ(-45deg) rotateX(-60deg) translateY(10px) scale(1.05); }
+}

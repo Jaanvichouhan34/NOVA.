@@ -77,7 +77,8 @@ export default function Badges() {
       emoji: "🎯",
       color: "var(--accent2)",
       badges: [
-        "50_1080_1080.png"
+        "50 Days.gif",
+        "may.gif"
       ]
     }
   ];
@@ -180,7 +181,7 @@ export default function Badges() {
                       position: 'relative',
                       overflow: 'hidden'
                     }}
-                    title={badge.replace('.png', '')}
+                    title={badge.replace(/\.(png|gif|jpe?g)$/i, '')}
                   >
                     <div style={{
                       position: 'absolute',
@@ -194,7 +195,7 @@ export default function Badges() {
                     }} className="badge-top-bar"></div>
                     <img
                       src={`/badges/${badge}`}
-                      alt={badge.replace('.png', '')}
+                      alt={badge.replace(/\.(png|gif|jpe?g)$/i, '')}
                       style={{
                         width: '100%',
                         height: '100px',
@@ -215,7 +216,7 @@ export default function Badges() {
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: 'vertical'
                     }}>
-                      {badge.replace('.png', '')}
+                      {badge.replace(/\.(png|gif|jpe?g)$/i, '')}
                     </p>
                   </div>
                 ))}

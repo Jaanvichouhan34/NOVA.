@@ -142,7 +142,7 @@ export default function Learn({ hireMeMode }) {
               <div className="glass-panel" style={{ 
                 padding: '2.5rem', 
                 border: `1px solid rgba(var(--accent-rgb), 0.2)`,
-                background: 'linear-gradient(135deg, rgba(var(--card), 0.6), rgba(0,0,0,0.8))',
+                background: 'linear-gradient(135deg, color-mix(in srgb, var(--card) $(0.6*100)%, transparent), rgba(0,0,0,0.8))',
                 borderRadius: '24px',
                 display: 'flex',
                 gap: '2rem',

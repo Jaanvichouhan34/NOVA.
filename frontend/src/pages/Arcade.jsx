@@ -66,7 +66,7 @@ export default function Arcade() {
                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(145deg, rgba(var(--card), 0.6) 0%, rgba(0,0,0,0.5) 100%)',
+                    background: 'linear-gradient(145deg, color-mix(in srgb, var(--card) $(0.6*100)%, transparent) 0%, rgba(0,0,0,0.5) 100%)',
                     textAlign: 'center',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                   }}
