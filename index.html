@@ -871,15 +871,69 @@
         }
 
         /* --- Mobile Responsive --- */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
         @media (max-width: 968px) {
             header {
                 padding: 1rem 5%;
-                flex-direction: column;
-                gap: 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
             }
 
             nav {
-                display: none;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 75%;
+                height: 100vh;
+                background: var(--card);
+                border-right: 1px solid var(--border);
+                flex-direction: column;
+                justify-content: center;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                display: flex;
+                padding: 2rem;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: flex-start;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .nav-controls {
+                gap: 0.5rem;
+            }
+
+            .hire-me-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            section {
+                padding: 80px 5%;
             }
 
             .hero-content {
@@ -889,6 +943,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .hero-name {
+                font-size: clamp(3rem, 15vw, 5rem);
+            }
 
             .hero-robot {
                 display: none;
@@ -897,17 +955,41 @@
             .hero-bio {
                 margin: 0 auto 2.5rem;
             }
+            
+            .stats-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
 
             .connect-grid,
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .avatar-box {
                 position: relative;
                 top: 0;
             }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .learn-grid, .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .album-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            
+            .chat-container {
+                height: 500px;
+            }
         }
+
         /* --- Credentials Section --- */
         .credentials-header {
             text-align: center;
@@ -1059,7 +1141,7 @@
 
     <header>
         <a href="#" class="logo" onclick="showPage('home')">MINE.</a>
-        <nav>
+        <nav id="mobile-nav">
             <ul>
                 <li><a href="#home" onclick="showPage('home')" class="active">Home</a></li>
                 <li><a href="#about" onclick="showPage('about')">About</a></li>
@@ -1075,6 +1157,7 @@
         <div class="nav-controls">
             <button class="btn-icon" onclick="toggleTheme()" id="theme-toggle">🌙</button>
             <button class="hire-me-btn" onclick="toggleHireMe()" id="hire-btn">Hire Me Mode</button>
+            <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
         </div>
     </header>
 
@@ -2166,6 +2249,11 @@ Be friendly and professional.`;
         }
 
         // --- Navigation ---
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+        }
+
         function showPage(id) {
             document.querySelectorAll('main > section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
@@ -2173,6 +2261,10 @@ Be friendly and professional.`;
                 a.classList.remove('active');
                 if (a.getAttribute('href') === '#' + id) a.classList.add('active');
             });
+            const nav = document.getElementById('mobile-nav');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
             window.scrollTo(0, 0);
         }
 

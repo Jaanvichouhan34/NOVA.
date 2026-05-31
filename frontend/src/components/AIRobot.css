@@ -30,7 +30,7 @@
   position: absolute;
   width: 100%;
   height: 2px;
-  background: rgba(255, 107, 26, 0.07);
+  background: rgba(var(--accent-rgb), 0.07);
   animation: aiScan 3s linear infinite;
 }
 @keyframes aiScan {
@@ -49,7 +49,7 @@
 }
 .ai-ds-line {
   font-size: 9px;
-  color: rgba(255, 107, 26, 0.5);
+  color: rgba(var(--accent-rgb), 0.5);
   font-family: monospace;
   animation: aiFade 2s ease-in-out infinite;
 }
@@ -64,7 +64,7 @@
 }
 .ai-cl-line {
   font-size: 9px;
-  color: rgba(255, 179, 71, 0.45);
+  color: rgba(var(--accent-rgb), 0.45);
   font-family: monospace;
   animation: aiFade 2.5s ease-in-out infinite;
 }
@@ -87,9 +87,9 @@
   top: 0; left: 50%;
   transform: translateX(-50%);
   width: 130px; height: 110px;
-  background: #1a1a1a;
+  background: var(--card2);
   border-radius: 18px 18px 12px 12px;
-  border: 2px solid #FF6B1A;
+  border: 2px solid var(--accent);
   animation: aiHeadGlitch 6s infinite;
 }
 @keyframes aiHeadGlitch {
@@ -105,7 +105,7 @@
   top: -22px; left: 50%;
   transform: translateX(-50%);
   width: 3px; height: 22px;
-  background: #FF6B1A;
+  background: var(--accent);
 }
 .ai-antenna::after {
   content: '';
@@ -114,7 +114,7 @@
   transform: translateX(-50%);
   width: 10px; height: 10px;
   border-radius: 50%;
-  background: #FF6B1A;
+  background: var(--accent);
   animation: aiBlink 1.2s ease-in-out infinite;
 }
 
@@ -123,8 +123,8 @@
   position: absolute;
   top: 30px;
   width: 14px; height: 40px;
-  background: #1a1a1a;
-  border: 2px solid #FF6B1A;
+  background: var(--card2);
+  border: 2px solid var(--accent);
   border-radius: 4px;
 }
 .ai-ear-l { left: -16px; }
@@ -136,7 +136,7 @@
   transform: translateX(-50%);
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: #FF6B1A;
+  background: var(--accent);
   animation: aiBlink 0.8s ease-in-out infinite alternate;
 }
 
@@ -146,9 +146,9 @@
   top: 22px; left: 50%;
   transform: translateX(-50%);
   width: 100px; height: 30px;
-  background: #0d0d0d;
+  background: var(--card);
   border-radius: 6px;
-  border: 1px solid #FF6B1A;
+  border: 1px solid var(--accent);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -158,7 +158,7 @@
 .ai-eye {
   width: 18px; height: 18px;
   border-radius: 50%;
-  background: #FF6B1A;
+  background: var(--accent);
   position: relative;
   animation: aiEyeScan 3s ease-in-out infinite;
 }
@@ -172,8 +172,8 @@
   animation: aiEyeMove 3s ease-in-out infinite;
 }
 @keyframes aiEyeScan {
-  0%, 100% { box-shadow: 0 0 8px #FF6B1A; }
-  50%       { box-shadow: 0 0 20px #FF6B1A, 0 0 40px rgba(255,107,26,0.4); }
+  0%, 100% { box-shadow: 0 0 8px var(--accent); }
+  50%       { box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(var(--accent-rgb),0.4); }
 }
 @keyframes aiEyeMove {
   0%, 100% { transform: translate(0, 0);    }
@@ -184,7 +184,7 @@
 .ai-scan-line {
   position: absolute;
   width: 100%; height: 1px;
-  background: rgba(255,107,26,0.6);
+  background: rgba(var(--accent-rgb),0.6);
   animation: aiVisorScan 2s linear infinite;
 }
 @keyframes aiVisorScan {
@@ -199,8 +199,8 @@
   transform: translateX(-50%);
   width: 70px; height: 12px;
   border-radius: 3px;
-  background: #0d0d0d;
-  border: 1px solid #FF6B1A;
+  background: var(--card);
+  border: 1px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -209,7 +209,7 @@
 }
 .ai-mouth-bar {
   width: 5px; height: 6px;
-  background: #FF6B1A;
+  background: var(--accent);
   border-radius: 1px;
   animation: aiTalk 0.4s ease-in-out infinite alternate;
 }
@@ -229,9 +229,9 @@
   top: 108px; left: 50%;
   transform: translateX(-50%);
   width: 30px; height: 18px;
-  background: #1a1a1a;
-  border-left:  2px solid #FF6B1A;
-  border-right: 2px solid #FF6B1A;
+  background: var(--card2);
+  border-left:  2px solid var(--accent);
+  border-right: 2px solid var(--accent);
 }
 
 /* ---------- Body ---------- */
@@ -240,18 +240,18 @@
   top: 124px; left: 50%;
   transform: translateX(-50%);
   width: 110px; height: 100px;
-  background: #1a1a1a;
+  background: var(--card2);
   border-radius: 10px;
-  border: 2px solid #FF6B1A;
+  border: 2px solid var(--accent);
 }
 .ai-chest-panel {
   position: absolute;
   top: 14px; left: 50%;
   transform: translateX(-50%);
   width: 75px; height: 45px;
-  background: #0d0d0d;
+  background: var(--card);
   border-radius: 6px;
-  border: 1px solid rgba(255,107,26,0.5);
+  border: 1px solid rgba(var(--accent-rgb),0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,7 +266,7 @@
 }
 .ai-cbar {
   flex: 1;
-  background: #FF6B1A;
+  background: var(--accent);
   border-radius: 1px;
   animation: aiCbar 0.6s ease-in-out infinite alternate;
 }
@@ -286,10 +286,10 @@
 .ai-cdot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: #FF6B1A;
+  background: var(--accent);
   animation: aiBlink 1s ease-in-out infinite;
 }
-.ai-cdot:nth-child(1) { animation-delay: 0s;   background: #FF6B1A; }
+.ai-cdot:nth-child(1) { animation-delay: 0s;   background: var(--accent); }
 .ai-cdot:nth-child(2) { animation-delay: 0.3s; background: #FFB347; }
 .ai-cdot:nth-child(3) { animation-delay: 0.6s; background: #FF4444; }
 
@@ -298,9 +298,9 @@
   position: absolute;
   top: 130px;
   width: 22px; height: 80px;
-  background: #1a1a1a;
+  background: var(--card2);
   border-radius: 8px;
-  border: 2px solid #FF6B1A;
+  border: 2px solid var(--accent);
 }
 .ai-arm-l { left: 10px;  animation: aiArmSwing 4s ease-in-out infinite; }
 .ai-arm-r { right: 10px; animation: aiArmSwing 4s ease-in-out infinite reverse; }
@@ -313,9 +313,9 @@
   bottom: -10px; left: 50%;
   transform: translateX(-50%);
   width: 18px; height: 14px;
-  background: #1a1a1a;
+  background: var(--card2);
   border-radius: 4px;
-  border: 2px solid #FF6B1A;
+  border: 2px solid var(--accent);
 }
 
 /* ---------- Legs ---------- */
@@ -323,9 +323,9 @@
   position: absolute;
   top: 222px;
   width: 28px; height: 55px;
-  background: #1a1a1a;
+  background: var(--card2);
   border-radius: 6px;
-  border: 2px solid #FF6B1A;
+  border: 2px solid var(--accent);
 }
 .ai-leg-l { left: 40px;  }
 .ai-leg-r { right: 40px; }
@@ -334,20 +334,20 @@
   bottom: -10px; left: 50%;
   transform: translateX(-50%);
   width: 34px; height: 12px;
-  background: #1a1a1a;
+  background: var(--card2);
   border-radius: 4px;
-  border: 2px solid #FF6B1A;
+  border: 2px solid var(--accent);
 }
 
 /* ---------- Floating tags ---------- */
 .ai-float-tag {
   position: absolute;
-  background: #0d0d0d;
-  border: 1px solid #FF6B1A;
+  background: var(--card);
+  border: 1px solid var(--accent);
   border-radius: 6px;
   padding: 4px 10px;
   font-size: 10px;
-  color: #FF6B1A;
+  color: var(--accent);
   letter-spacing: 0.05em;
   white-space: nowrap;
   animation: aiFloatTag 3s ease-in-out infinite;
@@ -367,18 +367,18 @@
 .ai-status-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #FF6B1A;
+  background: var(--accent);
   animation: aiBlink 1s infinite;
 }
 .ai-status-text {
   font-size: 11px;
-  color: rgba(255,107,26,0.8);
+  color: rgba(var(--accent-rgb),0.8);
   letter-spacing: 0.1em;
   font-family: monospace;
 }
 
 /* ---------- Shared keyframes ---------- */
 @keyframes aiBlink {
-  0%, 100% { opacity: 1;   box-shadow: 0 0 8px #FF6B1A; }
+  0%, 100% { opacity: 1;   box-shadow: 0 0 8px var(--accent); }
   50%       { opacity: 0.2; box-shadow: none;             }
 }
