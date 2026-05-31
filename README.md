@@ -2,11 +2,13 @@
 
 Welcome to my personal portfolio repository! This is a highly interactive, dual-mode engineering portfolio built from scratch. It is designed to express both my creative, tech-heavy personality and my clean, professional capabilities.
 
-## 📸 Screenshots
-*(Want to add images of your project? Create a folder named `docs` or `assets` at the root of this project, drop your screenshots there, and replace the links below!)*
-
-![Universe Mode Screenshot](./docs/universe-mode.png)
-![Hire Me Mode Screenshot](./docs/hire-me-mode.png)
+<div align="center">
+  <img src="./docs/universe-mode.png" alt="Universe Mode Overview" width="800" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);"/>
+  <br/><br/>
+  <img src="./docs/the%20lore.png" alt="The Lore Timeline" width="800" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);"/>
+  <br/><br/>
+  <img src="./docs/digital%20badges.png" alt="Digital Badges UI" width="800" style="border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);"/>
+</div>
 
 ## ✨ Dual-Mode Architecture
 
