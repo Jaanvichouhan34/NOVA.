@@ -163,8 +163,8 @@ export default function App() {
         transform: 'translateX(-50%)',
         zIndex: 1000,
         display: 'flex',
-        gap: '0.8rem',
-        padding: '0.8rem 1.5rem',
+        gap: '0.5rem',
+        padding: '0.6rem 1rem',
         background: 'color-mix(in srgb, var(--card) $(0.65*100)%, transparent)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
@@ -198,9 +198,9 @@ export default function App() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '4px',
-                padding: '0.5rem 0.8rem',
-                borderRadius: '16px',
+                gap: '2px',
+                padding: '0.4rem 0.6rem',
+                borderRadius: '14px',
                 background: isActive ? 'var(--surface)' : 'transparent',
                 color: isActive ? 'var(--accent)' : 'var(--text-muted)',
                 textDecoration: 'none',
@@ -216,8 +216,8 @@ export default function App() {
                 e.currentTarget.style.color = isActive ? 'var(--accent)' : 'var(--text-muted)';
               }}
             >
-              <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
-              <span style={{ fontSize: '0.7rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />
+              <span style={{ fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 {link.label}
               </span>
             </Link>

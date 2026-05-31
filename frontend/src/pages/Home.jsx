@@ -62,7 +62,7 @@ export default function Home({ hireMeMode }) {
             </span>
             
             <h1 style={{ 
-              fontSize: 'clamp(3.5rem, 8vw, 7rem)', 
+              fontSize: 'clamp(2.5rem, 5.5vw, 6rem)', 
               lineHeight: 0.9, 
               marginBottom: '1.5rem',
               letterSpacing: '-2px'
