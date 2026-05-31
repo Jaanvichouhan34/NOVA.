@@ -1,5 +1,7 @@
 # 🌌 MINE. / NOVA - Dual-Mode Interactive Portfolio
 
+👉 **Live Demo:** [https://nova-six-chi.vercel.app/](https://nova-six-chi.vercel.app/)
+
 Welcome to my personal portfolio repository! This is a highly interactive, dual-mode engineering portfolio built from scratch. It is designed to express both my creative, tech-heavy personality and my clean, professional capabilities.
 
 <div align="center">
