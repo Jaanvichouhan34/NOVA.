@@ -243,3 +243,72 @@ body.light .cursor-ring {
   top: 0;
   z-index: 10000;
 }
+
+/* ==============================================================
+   MOBILE RESPONSIVENESS FIXES
+   ============================================================== */
+@media (max-width: 968px) {
+  /* Home Layout */
+  .home-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+    text-align: center;
+    gap: 2rem !important;
+  }
+  
+  .home-left {
+    max-width: 100% !important;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .home-right {
+    height: 400px !important;
+    width: 100% !important;
+  }
+  
+  .hero-name {
+    font-size: clamp(3rem, 15vw, 4.5rem) !important;
+  }
+
+  .stats-panel {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .hire-me-layout {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    text-align: center;
+  }
+
+  /* App Header Nav adjustments */
+  header {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center !important;
+    padding: 1rem 5% !important;
+  }
+  
+  header > div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Make sure buttons fit on small screens */
+  .btn-primary, .btn-secondary {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Fix bottom nav scaling */
+  nav {
+    width: 90% !important;
+    overflow-x: auto;
+    justify-content: flex-start !important;
+  }
+}

@@ -42,13 +42,13 @@ export default function Home({ hireMeMode }) {
   }, []);
 
   return (
-    <div style={{ display: 'flex', minHeight: 'calc(100vh - 80px)', alignItems: 'center', padding: '0 5%' }}>
+    <div className="home-container" style={{ minHeight: 'calc(100vh - 80px)', padding: '0 5%' }}>
       
       {/* ---------------- NORMAL MODE (COOL & ELEGANT) ---------------- */}
       {!hireMeMode && (
         <>
           {/* Left Content */}
-          <div style={{ flex: 1, zIndex: 10, maxWidth: '600px' }}>
+          <div className="home-left" style={{ flex: 1, zIndex: 10, maxWidth: '600px' }}>
             <span style={{ 
               fontFamily: 'var(--font-mono)', 
               color: 'var(--accent)', 
@@ -61,7 +61,7 @@ export default function Home({ hireMeMode }) {
               ✦ Welcome to my universe
             </span>
             
-            <h1 style={{ 
+            <h1 className="hero-name" style={{ 
               fontSize: 'clamp(2.5rem, 5.5vw, 6rem)', 
               lineHeight: 0.9, 
               marginBottom: '1.5rem',
@@ -107,7 +107,7 @@ export default function Home({ hireMeMode }) {
             </div>
 
             {/* Stats */}
-            <div className="glass-panel hover-glow" style={{ 
+            <div className="glass-panel hover-glow stats-panel" style={{ 
               display: 'flex', 
               justifyContent: 'space-between', 
               padding: '1.5rem 2rem',
@@ -141,7 +141,7 @@ export default function Home({ hireMeMode }) {
           </div>
 
           {/* Right Content - Advanced 3D Core with Perfect Orbits */}
-          <div style={{ 
+          <div className="home-right" style={{ 
             flex: 1, 
             height: '600px', 
             position: 'relative',
@@ -156,7 +156,7 @@ export default function Home({ hireMeMode }) {
 
       {/* ---------------- HIRE ME MODE (PROFESSIONAL & CLEAN) ---------------- */}
       {hireMeMode && (
-        <div style={{ display: 'flex', width: '100%', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className="hire-me-layout" style={{ display: 'flex', width: '100%', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' }}>
           {/* Left Professional Intro */}
           <div style={{ flex: '1 1 500px' }}>
             <span style={{ color: 'var(--accent3)', fontWeight: 'bold', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '1rem', display: 'block' }}>
