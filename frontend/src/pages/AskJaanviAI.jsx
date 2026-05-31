@@ -21,7 +21,7 @@ export default function AskJaanviAI() {
     setLoading(true);
     
     try {
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch('https://nova-ot1a.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input, history: newMessages.map(m => ({role: m.role, parts: [{text: m.text}]})) })

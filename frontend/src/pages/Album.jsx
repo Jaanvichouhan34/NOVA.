@@ -6,8 +6,8 @@ export default function Album() {
 
   const images = Array.from({ length: 12 }).map((_, i) => ({
     id: i,
-    src: `https://picsum.photos/seed/${i + 1337}/800/${i % 2 === 0 ? '1200' : '800'}`,
-    caption: `Moment capturing the essence of time. #${i + 1}`
+    src: `/Album/image${i + 1}.jpeg`,
+    caption: `Memory ${i + 1}`
   }));
 
   return (
@@ -46,6 +46,7 @@ export default function Album() {
             <img 
               src={img.src} 
               alt={img.caption} 
+              onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
               style={{ width: '100%', display: 'block', transition: 'transform 0.5s', filter: 'grayscale(30%)' }}
               onMouseEnter={e => { e.target.style.transform = 'scale(1.05)'; e.target.style.filter = 'grayscale(0%)'; }}
               onMouseLeave={e => { e.target.style.transform = 'scale(1)'; e.target.style.filter = 'grayscale(30%)'; }}
