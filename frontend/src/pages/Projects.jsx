@@ -27,18 +27,18 @@ export default function Projects({ hireMeMode }) {
       tags: ['AI', 'Python', 'React', 'Groq API'] 
     },
     { 
-      path: "Jaanvichouhan34/AttendAI", 
-      liveLink: "https://attend-ai-lac.vercel.app/",
-      desc: "A smart attendance tracking system utilizing live face matching algorithms and real-time database syncing.",
-      img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=400&q=80", 
-      tags: ['Node.js', 'React', 'MongoDB'] 
-    },
-    { 
       path: "Jaanvichouhan34/SkillMirror", 
       liveLink: "https://skill-mirror-gray.vercel.app/",
       desc: "An adaptive quiz engine covering 6 CS domains with 600+ questions, gamification with badges, XP points, streaks, and leaderboards.",
       img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&q=80", 
       tags: ['MERN', 'Tailwind', 'Flask'] 
+    },
+    { 
+      path: "Jaanvichouhan34/Jeenie-Visualizer", 
+      liveLink: "https://jeenie-visualizer-n81f.vercel.app/",
+      desc: "An interactive data visualizer bridging complex datasets into user-friendly charts and visual lore.",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80", 
+      tags: ['React', 'Vite'] 
     },
     { 
       path: "Jaanvichouhan34/InterviewAI", 
@@ -47,19 +47,26 @@ export default function Projects({ hireMeMode }) {
       img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&q=80", 
       tags: ['Gemini', 'Express'] 
     },
+    {
+      path: "Jaanvichouhan34/PlaceUp",
+      liveLink: "https://place-up-tau.vercel.app/",
+      desc: "A personalized, AI-driven placement preparation platform for B.Tech students. Uses Groq API (Llama-3) to craft custom daily study plans with AI rescheduling, progress analytics, and gamification.",
+      img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=80",
+      tags: ['React', 'Vite', 'Groq API', 'Recharts', 'CSS']
+    },
+    { 
+      path: "Jaanvichouhan34/AttendAI", 
+      liveLink: "https://attend-ai-lac.vercel.app/",
+      desc: "A smart attendance tracking system utilizing live face matching algorithms and real-time database syncing.",
+      img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=400&q=80", 
+      tags: ['Node.js', 'React', 'MongoDB'] 
+    },
     { 
       path: "Jaanvichouhan34/AuraCalc", 
-      liveLink: "https://aura-calc.vercel.app/",
+      liveLink: "https://aura-calc-20.vercel.app/",
       desc: "A fun and interactive web application to calculate and visualize your personal 'Aura' using pure JS/CSS.",
       img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&q=80", 
       tags: ['JavaScript', 'CSS'] 
-    },
-    { 
-      path: "Jaanvichouhan34/Jeenie-Visualizer", 
-      liveLink: "https://jeenie-visualizer-n81f.vercel.app/",
-      desc: "An interactive data visualizer bridging complex datasets into user-friendly charts and visual lore.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80", 
-      tags: ['React', 'Vite'] 
     },
     { 
       path: "Jaanvichouhan34/AI-Virtual-Keyboard", 
