@@ -27,7 +27,8 @@ function ScrollToTop() {
 
 export default function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
-  const [hireMeMode, setHireMeMode] = useState(localStorage.getItem('hireMeMode') === 'true');
+  const storedHireMeMode = localStorage.getItem('hireMeMode');
+  const [hireMeMode, setHireMeMode] = useState(storedHireMeMode === null ? true : storedHireMeMode === 'true');
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const location = useLocation();
 

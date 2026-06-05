@@ -1862,7 +1862,8 @@
     <script>
         // --- State Management ---
         let currentTheme = localStorage.getItem('theme') || 'dark';
-        let hireMeMode = localStorage.getItem('hireMeMode') === 'true';
+        let storedHireMeMode = localStorage.getItem('hireMeMode');
+        let hireMeMode = storedHireMeMode === null ? true : storedHireMeMode === 'true';
 
         // --- Initialization ---
         document.body.className = currentTheme;
