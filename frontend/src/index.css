@@ -106,6 +106,59 @@ body.hire-me h1, body.hire-me h2, body.hire-me h3 {
   to { transform: translate(100px, -50px) scale(1.1); }
 }
 
+/* Glitch Effect */
+.glitch-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-text-fill-color: initial;
+}
+
+.glitch-hover:hover::before {
+  opacity: 1;
+  color: #0ff;
+  z-index: -1;
+  left: 3px;
+  animation: glitch-anim-1 0.2s infinite linear alternate-reverse;
+}
+
+.glitch-hover:hover::after {
+  opacity: 1;
+  color: #f00;
+  z-index: -2;
+  left: -3px;
+  animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(2px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(-2px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(2px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(1px, 2px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(-1px, -2px); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(80% 0 5% 0); transform: translate(-1px, 2px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(1px, -2px); }
+}
+
 /* Background Effects */
 .bg-effects {
   position: fixed;
@@ -202,32 +255,29 @@ body.hire-me h1, body.hire-me h2, body.hire-me h3 {
   box-shadow: 0 5px 20px rgba(var(--accent-rgb), 0.2);
 }
 
-/* Custom Cursor */
+/* Custom Cursor overrides */
 .custom-cursor {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  background: var(--accent);
-  border-radius: 50%;
+  /* We render an SVG directly now, so remove background/size */
+  background: transparent;
   pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s;
 }
 
-.cursor-ring {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.2s ease-out;
+body.light .custom-cursor {
+  display: none; /* Return to normal cursor in light mode if desired */
 }
 
-body.light .custom-cursor,
-body.light .cursor-ring {
-  display: none; /* Return to normal cursor in light mode */
+body {
+  cursor: none; /* Hide default cursor so custom one shows clearly */
+}
+a, button, input, select, textarea, [role="button"] {
+  cursor: none; /* Also hide over interactable elements */
+}
+
+body.light {
+  cursor: auto;
+}
+body.light a, body.light button, body.light input, body.light select, body.light textarea, body.light [role="button"] {
+  cursor: pointer;
 }
 
 /* Hire Me Banner */

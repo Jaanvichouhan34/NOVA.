@@ -67,8 +67,8 @@ export default function Home({ hireMeMode }) {
               marginBottom: '1.5rem',
               letterSpacing: '-2px'
             }}>
-              <span style={{ color: 'var(--text)' }}>JAANVI</span> <br/>
-              <span style={{ 
+              <span className="glitch-hover" data-text="JAANVI" style={{ color: 'var(--text)' }}>JAANVI</span> <br/>
+              <span className="glitch-hover" data-text="CHOUHAN" style={{ 
                 background: 'linear-gradient(90deg, var(--accent) 0%, var(--accent3) 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',

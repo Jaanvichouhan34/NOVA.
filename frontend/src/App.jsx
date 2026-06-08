@@ -15,6 +15,7 @@ import Connect from './pages/Connect';
 import Certificates from './pages/Certificates';
 import Badges from './pages/Badges';
 import RobotAssistant from './components/RobotAssistant';
+import BootScreen from './components/BootScreen';
 import { Home as HomeIcon, Gamepad2 as GameIcon, User, Layers, Book, Image as ImgIcon, Phone, Music as MusicIcon, Award, Shield } from 'lucide-react';
 
 function ScrollToTop() {
@@ -30,6 +31,7 @@ export default function App() {
   const storedHireMeMode = localStorage.getItem('hireMeMode');
   const [hireMeMode, setHireMeMode] = useState(storedHireMeMode === null ? true : storedHireMeMode === 'true');
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [showBootScreen, setShowBootScreen] = useState(true);
   const location = useLocation();
 
   // Handle Theme & Mode Persistence
@@ -60,6 +62,14 @@ export default function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const handleBootComplete = () => {
+    setShowBootScreen(false);
+  };
+
+  if (showBootScreen) {
+    return <BootScreen onComplete={handleBootComplete} />;
+  }
+
   return (
     <>
       {/* Background Effects */}
@@ -74,14 +84,20 @@ export default function App() {
       </div>
 
       {/* Custom Cursor */}
-      <div 
+      <svg 
         className="custom-cursor" 
-        style={{ transform: `translate(${cursorPos.x - 6}px, ${cursorPos.y - 6}px)` }} 
-      />
-      <div 
-        className="cursor-ring" 
-        style={{ transform: `translate(${cursorPos.x - 20}px, ${cursorPos.y - 20}px)` }} 
-      />
+        width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        style={{ 
+          transform: `translate(${cursorPos.x}px, ${cursorPos.y}px)`, 
+          position: 'fixed', 
+          top: 0, left: 0, 
+          zIndex: 9999, 
+          pointerEvents: 'none',
+          transition: 'none' /* ensure it follows instantly */
+        }} 
+      >
+        <path d="M5 3L19 12L12 14L9 21L5 3Z" fill="rgba(0,0,0,0.5)" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
+      </svg>
 
       {/* Robot Assistant */}
       {!hireMeMode && <RobotAssistant />}
