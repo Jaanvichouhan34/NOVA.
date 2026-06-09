@@ -3,6 +3,38 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MessageSquare, Briefcase, Database, Code2, BrainCircuit } from 'lucide-react';
 import EnergyCore from '../components/EnergyCore';
 
+const Typewriter = ({ words, speed = 80, delay = 1500 }) => {
+  const [text, setText] = useState('');
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    let timeout;
+
+    if (isDeleting) {
+      timeout = setTimeout(() => {
+        setText(currentWord.substring(0, text.length - 1));
+        if (text.length === 0) {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }, speed / 2);
+    } else {
+      timeout = setTimeout(() => {
+        setText(currentWord.substring(0, text.length + 1));
+        if (text.length === currentWord.length) {
+          timeout = setTimeout(() => setIsDeleting(true), delay);
+        }
+      }, speed);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, wordIndex, words, speed, delay]);
+
+  return <span style={{ borderRight: '2px solid var(--accent)', paddingRight: '2px', animation: 'blink 1s step-end infinite' }}>{text}</span>;
+};
+
 export default function Home({ hireMeMode }) {
   const techLogos = [
     { name: "React", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -61,7 +93,7 @@ export default function Home({ hireMeMode }) {
               boxShadow: 'inset 0 0 20px rgba(var(--accent-rgb), 0.05)'
             }}>
               <h2 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-muted)', margin: 0, fontFamily: 'var(--font-mono)', letterSpacing: '1px' }}>
-                FULL-STACK DEV <span style={{color:'var(--accent)', margin:'0 8px'}}>•</span> AI BUILDER <span style={{color:'var(--accent)', margin:'0 8px'}}>•</span> CS @ MEDI-CAPS
+                <Typewriter words={["MERN STACK DEVELOPER", "AI INTEGRATIONS BUILDER", "CCNA TRAINED ENGINEER"]} />
               </h2>
             </div>
 
@@ -128,8 +160,8 @@ export default function Home({ hireMeMode }) {
             <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 1.1, marginBottom: '1.5rem', color: 'var(--text)' }}>
               Jaanvi Chouhan
             </h1>
-            <h2 style={{ fontSize: '1.4rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>
-              Building Scalable Web Applications & AI-Driven Solutions.
+            <h2 style={{ fontSize: '1.4rem', color: 'var(--text-muted)', marginBottom: '2rem', minHeight: '35px' }}>
+              Building Scalable Web Applications & <Typewriter words={["AI-Driven Solutions.", "MERN Stack Platforms.", "Secure Networks."]} />
             </h2>
             <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text-muted)', marginBottom: '3rem' }}>
               Welcome to my professional portfolio. I am a highly motivated Computer Science undergraduate actively seeking internship and collaboration opportunities where I can apply my expertise in the MERN stack and AI API integrations.
@@ -187,6 +219,10 @@ export default function Home({ hireMeMode }) {
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
+        }
+        @keyframes blink {
+          0%, 100% { border-color: transparent; }
+          50% { border-color: var(--accent); }
         }
       `}</style>
     </div>
