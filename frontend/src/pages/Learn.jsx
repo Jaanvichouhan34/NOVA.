@@ -3,11 +3,12 @@ import { Code2, Database, BrainCircuit, LayoutTemplate, Briefcase, FileCode2, Za
 
 export default function Learn({ hireMeMode }) {
   const skills = [
-    { title: 'Languages', icon: Code2, details: 'Python, JavaScript, C, Core Java — strong foundations in logic and OOP.', color: 'var(--accent4)' },
-    { title: 'Frontend', icon: LayoutTemplate, details: 'React.js, HTML, CSS, Tailwind CSS, Framer Motion — building responsive, animated UIs.', color: 'var(--accent)' },
-    { title: 'Backend', icon: Database, details: 'Node.js, Express.js, REST APIs, JWT — secure, scalable server-side architecture.', color: 'var(--accent2)' },
-    { title: 'Database', icon: Database, details: 'MongoDB, MySQL — schema design, aggregation pipelines, and relational modeling.', color: 'var(--accent3)' },
-    { title: 'AI & Tools', icon: BrainCircuit, details: 'Groq API, OpenAI, Google Gemini, OpenCV, Git, GitHub, Vercel, Render.', color: 'var(--accent)' }
+    { title: 'Languages', icon: Code2, items: ['Python', 'JavaScript', 'C', 'C++', 'Java'], color: 'var(--accent4)' },
+    { title: 'Frontend', icon: LayoutTemplate, items: ['React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Framer Motion'], color: 'var(--accent)' },
+    { title: 'Backend', icon: Database, items: ['Node.js', 'Express.js', 'REST APIs', 'JWT Authentication'], color: 'var(--accent2)' },
+    { title: 'Databases', icon: Database, items: ['MongoDB', 'MySQL', 'Aggregation Pipelines'], color: 'var(--accent3)' },
+    { title: 'AI & Tools', icon: BrainCircuit, items: ['Groq API', 'OpenAI', 'Google Gemini', 'OpenCV', 'Git', 'GitHub', 'Vercel', 'Postman'], color: 'var(--accent)' },
+    { title: 'Soft Skills', icon: Briefcase, items: ['Communication', 'Team Collaboration', 'Problem Solving', 'Adaptability', 'Leadership'], color: 'var(--accent4)' }
   ];
 
   const challenges = [
@@ -48,7 +49,34 @@ export default function Learn({ hireMeMode }) {
                   <Icon size={32} color={skill.color} style={{ marginBottom: '1rem' }} />
                 </div>
                 <h3 style={{ marginBottom: '0.5rem' }}>{skill.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{skill.details}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginTop: '1rem' }}>
+                  {skill.items && skill.items.map((item, i) => (
+                    <span key={i} className="skill-pill" style={{
+                      padding: '6px 14px',
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      borderRadius: '20px',
+                      fontSize: '0.85rem',
+                      color: 'var(--text)',
+                      transition: 'all 0.3s ease',
+                      cursor: 'default'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = skill.color;
+                      e.currentTarget.style.color = '#000';
+                      e.currentTarget.style.borderColor = skill.color;
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                      e.currentTarget.style.color = 'var(--text)';
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             );
           })}
@@ -178,8 +206,35 @@ export default function Learn({ hireMeMode }) {
                 </div>
 
                 <div style={{ position: 'relative', zIndex: 2 }}>
-                  <h2 style={{ marginBottom: '0.8rem', fontSize: '1.8rem', color: 'var(--text)', letterSpacing: '1px' }}>{skill.title}</h2>
-                  <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '1.1rem' }}>{skill.details}</p>
+                  <h2 style={{ marginBottom: '1rem', fontSize: '1.8rem', color: 'var(--text)', letterSpacing: '1px' }}>{skill.title}</h2>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                    {skill.items && skill.items.map((item, i) => (
+                      <span key={i} className="skill-pill" style={{
+                        padding: '8px 16px',
+                        background: 'rgba(255,255,255,0.05)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        borderRadius: '24px',
+                        fontSize: '1rem',
+                        color: 'var(--text)',
+                        transition: 'all 0.3s ease',
+                        cursor: 'default'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = skill.color;
+                        e.currentTarget.style.color = '#000';
+                        e.currentTarget.style.borderColor = skill.color;
+                        e.currentTarget.style.transform = 'translateY(-3px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                        e.currentTarget.style.color = 'var(--text)';
+                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

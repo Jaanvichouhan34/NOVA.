@@ -4,12 +4,39 @@ import { Award, Medal, Trophy, ExternalLink, Calendar, Code2, Shield, Cloud, Dow
 export default function Certificates() {
   const achievements = [
     {
+      title: "IBM SkillsBuild AICTE Internship",
+      org: "IBM & Edunet Foundation",
+      date: "June - July 2026",
+      type: "Internship",
+      icon: Cloud,
+      desc: "Completed an intensive 4-week internship program exploring advanced technology concepts.",
+      link: "#"
+    },
+    {
+      title: "Cisco Certified Network Associate (CCNA)",
+      org: "Cisco Networking Academy",
+      date: "Sep 2025 - May 2026",
+      type: "Internship",
+      icon: Shield,
+      desc: "Currently undertaking a rigorous 9-month internship/training program in Enterprise Networking, Routing, Switching, and Cybersecurity.",
+      link: "#"
+    },
+    {
       title: "GSSoC 2026 Ambassador & Contributor",
       org: "GirlScript Summer of Code",
       date: "2026",
       type: "Open Source",
       icon: Code2,
       desc: "Selected as Ambassador & Contributor out of 35,000+ applicants. Contributing to open source projects while driving community outreach.",
+      link: "#"
+    },
+    {
+      title: "Google Arcade Facilitator 2025",
+      org: "Google Cloud Skills Boost",
+      date: "2025 (Cohort 2)",
+      type: "Cloud Program",
+      icon: Cloud,
+      desc: "Achieved Trooper-level recognition for completing cloud-based technical challenges in the Google Arcade Facilitator Program.",
       link: "#"
     },
     {
@@ -37,24 +64,6 @@ export default function Certificates() {
       type: "Hackathon",
       icon: Medal,
       desc: "Selected for Round 2, conducted at Medi-Caps University by 47 Billion.",
-      link: "#"
-    },
-    {
-      title: "Google Arcade Facilitator 2025",
-      org: "Google Cloud Skills Boost",
-      date: "2025 (Cohort 2)",
-      type: "Cloud Program",
-      icon: Cloud,
-      desc: "Achieved Trooper-level recognition for completing cloud-based technical challenges in the Google Arcade Facilitator Program.",
-      link: "#"
-    },
-    {
-      title: "Cisco Certified Network Associate (CCNA)",
-      org: "Cisco Networking Academy",
-      date: "Sep 2025 - Present",
-      type: "Internship",
-      icon: Shield,
-      desc: "Currently undertaking a rigorous 9-month internship/training program in Enterprise Networking, Routing, Switching, and Cybersecurity.",
       link: "#"
     }
   ];

@@ -4,42 +4,16 @@ import { ArrowRight, MessageSquare, Briefcase, Database, Code2, BrainCircuit } f
 import EnergyCore from '../components/EnergyCore';
 
 export default function Home({ hireMeMode }) {
-  const [counts, setCounts] = useState({
-    projects: 0,
-    cgpa: 0,
-    hackathons: 0,
-    questions: 0
-  });
-
-  useEffect(() => {
-    // Animate stats counter
-    const duration = 2000;
-    const steps = 60;
-    let currentStep = 0;
-
-    const targetCounts = {
-      projects: 14, // 14 live projects referenced
-      cgpa: 8.57,
-      hackathons: 3,
-      questions: 600
-    };
-
-    const interval = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-      
-      setCounts({
-        projects: Math.floor(targetCounts.projects * progress),
-        cgpa: (targetCounts.cgpa * progress).toFixed(2),
-        hackathons: Math.floor(targetCounts.hackathons * progress),
-        questions: Math.floor(targetCounts.questions * progress)
-      });
-
-      if (currentStep >= steps) clearInterval(interval);
-    }, duration / steps);
-
-    return () => clearInterval(interval);
-  }, []);
+  const techLogos = [
+    { name: "React", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "Node.js", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "MongoDB", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { name: "JavaScript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "Python", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Java", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { name: "Tailwind CSS", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" }
+  ];
 
   return (
     <div className="home-container" style={{ minHeight: 'calc(100vh - 80px)', padding: '0 5%' }}>
@@ -106,37 +80,26 @@ export default function Home({ hireMeMode }) {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="glass-panel hover-glow stats-panel" style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              padding: '1.5rem 2rem',
+            {/* Tech Stack Marquee */}
+            <div className="glass-panel stats-panel" style={{ 
               marginTop: '2rem',
               borderTop: '2px solid var(--accent)',
               background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%)',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+              padding: '1.5rem 0',
+              overflow: 'hidden',
+              position: 'relative',
+              borderRadius: '16px'
             }}>
-              {[
-                { value: `${counts.projects}+`, label: 'Live Projects' },
-                { value: counts.cgpa, label: 'CGPA' },
-                { value: `${counts.hackathons}×`, label: 'Hackathons' },
-                { value: `${counts.questions}+`, label: 'AI Questions Built' }
-              ].map((stat, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{ 
-                    fontFamily: 'var(--font-mono)', 
-                    fontSize: '1.5rem', 
-                    color: 'var(--accent)',
-                    fontWeight: 'bold',
-                    marginBottom: '0.25rem'
-                  }}>
-                    {stat.value}
+              <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '40px', background: 'linear-gradient(to right, color-mix(in srgb, var(--card) 90%, transparent), transparent)', zIndex: 2 }}></div>
+              <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '40px', background: 'linear-gradient(to left, color-mix(in srgb, var(--card) 90%, transparent), transparent)', zIndex: 2 }}></div>
+              
+              <div className="marquee-container" style={{ display: 'flex', width: '200%', animation: 'marquee 15s linear infinite' }}>
+                {[...techLogos, ...techLogos].map((logo, i) => (
+                  <div key={i} style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img src={logo.url} alt={logo.name} title={logo.name} style={{ width: '45px', height: '45px', filter: 'drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.3))' }} />
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -173,27 +136,22 @@ export default function Home({ hireMeMode }) {
             </p>
             
             <div className="glass-panel" style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              padding: '2rem',
               borderRadius: '16px',
-              borderTop: '4px solid var(--accent3)'
+              borderTop: '4px solid var(--accent3)',
+              padding: '2rem 0',
+              overflow: 'hidden',
+              position: 'relative'
             }}>
-              {[
-                { value: `${counts.projects}+`, label: 'Live Projects' },
-                { value: counts.cgpa, label: 'CGPA' },
-                { value: `${counts.hackathons}×`, label: 'Hackathons' },
-                { value: `${counts.questions}+`, label: 'AI Questions Built' }
-              ].map((stat, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', color: 'var(--text)', fontWeight: 'bold', marginBottom: '0.25rem' }}>
-                    {stat.value}
+              <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '50px', background: 'linear-gradient(to right, color-mix(in srgb, var(--card) 90%, transparent), transparent)', zIndex: 2 }}></div>
+              <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '50px', background: 'linear-gradient(to left, color-mix(in srgb, var(--card) 90%, transparent), transparent)', zIndex: 2 }}></div>
+              
+              <div className="marquee-container" style={{ display: 'flex', width: '200%', animation: 'marquee 15s linear infinite' }}>
+                {[...techLogos, ...techLogos].map((logo, i) => (
+                  <div key={i} style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img src={logo.url} alt={logo.name} title={logo.name} style={{ width: '50px', height: '50px', filter: 'drop-shadow(0 0 10px rgba(var(--accent3-rgb), 0.3))' }} />
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -224,6 +182,13 @@ export default function Home({ hireMeMode }) {
           </div>
         </div>
       )}
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   );
 }

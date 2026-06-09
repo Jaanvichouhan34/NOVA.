@@ -14,7 +14,7 @@ export default function About({ hireMeMode }) {
   if (!hireMeMode) {
     return (
       <div style={{ display: 'flex', gap: '3rem', maxWidth: '1300px', margin: '0 auto', alignItems: 'flex-start', padding: '0 5%' }}>
-        <div style={{ flexShrink: 0, position: 'sticky', top: '220px', width: '300px', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ flexShrink: 0, position: 'sticky', top: '220px', width: '200px', display: 'flex', justifyContent: 'center', marginLeft: '-4rem' }}>
           <InteractiveRobot />
         </div>
         <div style={{ flex: 1, padding: '2rem 0', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '900px' }}>
@@ -82,7 +82,7 @@ export default function About({ hireMeMode }) {
 
   return (
     <div style={{ display: 'flex', gap: '3rem', maxWidth: '1300px', margin: '0 auto', alignItems: 'flex-start', padding: '0 5%' }}>
-      <div style={{ flexShrink: 0, position: 'sticky', top: '220px', width: '300px', display: 'flex', justifyContent: 'center' }}>
+      <div style={{ flexShrink: 0, position: 'sticky', top: '220px', width: '200px', display: 'flex', justifyContent: 'center', marginLeft: '-4rem' }}>
         <InteractiveRobot />
       </div>
       <div style={{ flex: 1, padding: '2rem 0', minHeight: 'calc(100vh - 150px)', paddingBottom: '150px', maxWidth: '900px' }}>

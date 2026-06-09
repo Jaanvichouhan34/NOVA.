@@ -93,21 +93,21 @@ export default function Projects({ hireMeMode }) {
       path: "Jaanvichouhan34/portfolio",
       liveLink: "https://portfolio-seven-blue-4jrm6eqqd4.vercel.app",
       desc: "An immersive, high-performance developer portfolio featuring a 3D interactive robot, sleek bento-grid project showcases, and a full-stack contact system.",
-      img: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400&q=80",
+      img: "/portfolio_mockup.png",
       tags: ['Next.js', 'React', 'Three.js', 'Tailwind', 'Supabase']
     },
     { 
       path: "Jaanvichouhan34/amazon", 
       liveLink: "https://amazon-flax-eight.vercel.app",
       desc: "A simple and responsive clone of the Amazon homepage built using HTML and CSS.",
-      img: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=400&q=80", 
+      img: "/amazon_mockup.png", 
       tags: ['HTML', 'CSS'] 
     },
     { 
       path: "Jaanvichouhan34/facebook-login-page", 
       liveLink: "https://facebook-login-page-ruby-sigma.vercel.app",
       desc: "A clean and responsive Facebook login page clone built using HTML and CSS.",
-      img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&q=80", 
+      img: "/facebook_login_mockup.png", 
       tags: ['HTML', 'CSS'] 
     }
   ];

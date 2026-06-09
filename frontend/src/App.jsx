@@ -31,6 +31,7 @@ export default function App() {
   const storedHireMeMode = localStorage.getItem('hireMeMode');
   const [hireMeMode, setHireMeMode] = useState(storedHireMeMode === null ? true : storedHireMeMode === 'true');
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
   const [showBootScreen, setShowBootScreen] = useState(true);
   const location = useLocation();
 
@@ -53,13 +54,36 @@ export default function App() {
     }
   }, [theme, hireMeMode]);
 
-  // Handle Custom Cursor
+  // Handle Custom Cursor & Hover
   useEffect(() => {
     const handleMouseMove = (e) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
     };
+    
+    const handleMouseOver = (e) => {
+      const target = e.target;
+      if (
+        target.tagName.toLowerCase() === 'a' || 
+        target.tagName.toLowerCase() === 'button' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList.contains('btn-primary') ||
+        target.classList.contains('btn-secondary') ||
+        target.classList.contains('glitch-hover')
+      ) {
+        setIsHovering(true);
+      } else {
+        setIsHovering(false);
+      }
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseover', handleMouseOver);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseover', handleMouseOver);
+    };
   }, []);
 
   const handleBootComplete = () => {
@@ -82,6 +106,15 @@ export default function App() {
           </>
         )}
       </div>
+
+      {/* Cursor Glow Effect */}
+      <div 
+        className={`cursor-glow ${isHovering ? 'hover-active' : ''}`}
+        style={{
+          left: `${cursorPos.x}px`,
+          top: `${cursorPos.y}px`,
+        }}
+      />
 
       {/* Custom Cursor */}
       <svg 

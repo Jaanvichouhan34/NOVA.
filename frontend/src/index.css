@@ -369,3 +369,21 @@ body.light a, body.light button, body.light input, body.light select, body.light
     justify-content: flex-start !important;
   }
 }
+
+/* Cursor Glow Effect */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+}
+
+body.light .cursor-glow {
+  display: none;
+}
